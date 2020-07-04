@@ -1,0 +1,3 @@
+{:allow [api.monolith.dev/app]
+ :lambdas {:app {:fn api.monolith.dev/app}}
+ :app-name "<system-name>"}

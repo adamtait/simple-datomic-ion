@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+clojure -A:ion-dev '{:op :push :region "<region>" :creds-profile "<if-you-have-one>"}'

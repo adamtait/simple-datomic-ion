@@ -1,0 +1,42 @@
+;; The deps.edn file describes the information needed to build a classpath.
+;;
+;; When using the `clojure` or `clj` script, there are several deps.edn files
+;; that are combined:
+;; - install-level
+;; - user level (this file)
+;; - project level (current directory when invoked)
+;;
+;; For all attributes other than :paths, these config files are merged left to right.
+;; Only the last :paths is kept and others are dropped.
+
+;; see: https://github.com/seancorfield/dot-clojure
+
+
+{
+ :mvn/repos
+ {"datomic-cloud" {:url "s3://datomic-releases-1fc2183a/maven/releases"}}
+
+ :aliases
+ {
+  :new
+  {:extra-deps {seancorfield/clj-new {:mvn/version "0.7.7"}}
+   :main-opts  ["-m" "clj-new.create"]}
+  
+  :ion-dev
+  {:deps {com.datomic/ion-dev {:mvn/version "0.9.265"}}
+   :main-opts ["-m" "datomic.ion.dev"]}
+
+  :dev
+  {:extra-deps
+   {com.datomic/client-cloud     {:mvn/version "0.8.96"}
+    com.datomic/ion-dev          {:mvn/version "0.9.265"
+                                  :exclusions  [org.slf4j/slf4j-nop]}}}
+  
+  :cider-nrepl
+  {:extra-deps {cider/cider-nrepl {:mvn/version "0.25.1"}}
+   :main-opts ["-m" "nrepl.cmdline" "--middleware" "[cider.nrepl/cider-middleware]"]}
+
+  :httpd
+  {:extra-deps {nasus {:mvn/version "0.1.7"}}
+   :main-opts  ["-m" "http.server"]}
+  }}
