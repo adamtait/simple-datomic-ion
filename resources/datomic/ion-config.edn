@@ -1,3 +1,15 @@
-{:allow [api.monolith.dev/app]
- :lambdas {:app {:fn api.monolith.dev/app}}
- :app-name "<system-name>"}
+{
+ :app-name "<from-cloudformation>"
+ 
+ :allow
+ [datomic-ion.app/handler
+  datomic-ion.api-gateway.app/app
+  datomic-ion.api-gateway.component.app/app]
+ 
+ :lambdas
+ {
+  :app {:fn datomic-ion.app/handler}
+  :apigw-app {:fn datomic-ion.api-gateway.app/app
+              :integration :api-gateway/proxy}
+  :apigw-component-app {:fn datomic-ion.api-gateway.component.app/app
+                        :integration :api-gateway/proxy}}}

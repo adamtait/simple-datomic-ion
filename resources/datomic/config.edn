@@ -1,0 +1,9 @@
+{
+ :db-name "dev"
+
+ :client
+ {:server-type :ion
+  :region "<aws-region>"
+  :system "<system-name>"
+  :endpoint "http://entry.<system-name>.<region>.datomic.net:8182"
+  :proxy-port 8182}}
