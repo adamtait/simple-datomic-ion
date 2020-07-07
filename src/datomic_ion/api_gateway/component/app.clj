@@ -58,8 +58,13 @@
 (defn handler []
   (fn [{:keys [headers body] :as request}]
     (let [system (get-system)]
-      {:headers
+      {
+       :status 200
+       :isBase64Encoded false
+
+       :headers
        {"Content-Type" "text/plain"}
+
        :body
        (str
         "datomic-ion.api-gateway.component.app - schema version: "

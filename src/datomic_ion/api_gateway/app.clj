@@ -25,8 +25,13 @@
 
 (defn handler
   [{:keys [headers body] :as request}]
-  {:headers
+  {
+   :status 200
+   :isBase64Encoded false
+   
+   :headers
    {"Content-Type" "text/plain"}
+
    :body
    (str
     "datomic-ion.api-gateway.app - schema version: "
