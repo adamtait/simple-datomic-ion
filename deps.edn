@@ -2,7 +2,7 @@
  :paths ["resources" "src"]
  :deps {
         com.cognitect/anomalies    {:mvn/version "0.1.12"}
-        com.datomic/client-cloud   {:mvn/version "0.8.81"}
+        com.datomic/client-cloud   {:mvn/version "0.8.96"}
         com.datomic/ion            {:mvn/version "0.9.35"}
         org.clojure/clojure        {:mvn/version "1.10.1"}
         org.clojure/data.json      {:mvn/version "0.2.6"}
